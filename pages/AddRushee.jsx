@@ -140,7 +140,7 @@ export default function AddRushee() {
                             />
                         </div>
                         <div className="flex items-center p-4">
-                            <label className="p-4 font-bold">Write a few sentences about any interests you have?</label>
+                            <label className="p-4 font-bold">Tell us about your builder journey so far.</label>
                             <input
                                 type="text"
                                 name="q1"
@@ -150,7 +150,7 @@ export default function AddRushee() {
                             />
                         </div>
                         <div className="flex items-center p-4">
-                            <label className="p-4 font-bold">Why do you want to join Theta Tau? </label>
+                            <label className="p-4 font-bold">Why are you interested in V1? What do you hope to give and gain from our community? </label>
                             <input
                                 type="text"
                                 name="q2"
@@ -160,7 +160,7 @@ export default function AddRushee() {
                             />
                         </div>
                         <div className="flex items-center p-4">
-                            <label className="p-4 font-bold">Tell us a Joke</label>
+                            <label className="p-4 font-bold">Tell us a fun fact about yourself in one or two sentences.</label>
                             <input
                                 type="text"
                                 name="q3"
