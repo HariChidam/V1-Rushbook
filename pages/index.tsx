@@ -15,7 +15,7 @@ interface Rushee {
   imageUrl: string;
   Major: string;
   Year: string;
-  Pronouns: string;
+  Gender: string;
   q1: string;
   q2: string;
   q3: string;
@@ -236,7 +236,7 @@ export default function Home() {
                   imageUrl={rushee.imageUrl}
                   Major={rushee.Major}
                   Year={rushee.Year}
-                  Pronouns={rushee.Pronouns}
+                  Gender={rushee.Gender}
                   Big={false}
                   userEmail={userEmail}
                 />

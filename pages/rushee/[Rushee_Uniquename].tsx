@@ -17,7 +17,7 @@ export default function RusheePage() {
     const [imageUrl, setImageUrl] = useState('');
     const [Major, setMajor] = useState('');
     const [Year, setYear] = useState('');
-    const [Pronouns, setPronouns] = useState('');
+    const [Gender, setGender] = useState('');
     const [alreadyLiked, setAlreadyLiked] = useState(false);
     const [alreadyDisliked, setAlreadyDisliked] = useState(false);
     const [userEmail, setUserEmail] = useState('');
@@ -66,7 +66,7 @@ export default function RusheePage() {
               setComments(rusheeData.Comments);
               setMajor(rusheeData.Major);
               setYear(rusheeData.Year);
-              setPronouns(rusheeData.Pronouns);
+              setGender(rusheeData.Gender);
     
               // Check if the current user has already liked or disliked the rushee
               if (userEmail) {
@@ -216,7 +216,7 @@ export default function RusheePage() {
                 imageUrl={imageUrl} 
                 Major={Major}
                 Year={Year}
-                Pronouns={Pronouns}
+                Gender={Gender}
                 Big={true} 
                 alreadyLiked={alreadyLiked} 
                 alreadyDisliked={alreadyDisliked} 
