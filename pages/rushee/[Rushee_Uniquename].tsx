@@ -7,8 +7,8 @@ import ProtectedRoute from "../../components/ProtectedRoute";
 export default function RusheePage() {
 
     const router = useRouter();
-    const { Rushee_Uniquename } = router.query;
-    const [uniqueName, setUniqueName] = useState('');
+    const { Rushee_Email } = router.query;
+    const [email, setEmail] = useState('');
     const [name , setName] = useState('');
     const [q1 , setQ1] = useState('');
     const [q2 , setQ2] = useState('');
@@ -42,21 +42,21 @@ export default function RusheePage() {
         };
     
         fetchSession();
-      }, [Rushee_Uniquename]);
+      }, [Rushee_Email]);
     
       useEffect(() => {
         const fetchRushee = async () => {
-          if (Rushee_Uniquename) {
+          if (Rushee_Email) {
             const { data, error } = await supabase
               .from('V1-Book')
               .select('*')
-              .eq('Rushee_Uniquename', Rushee_Uniquename);
+              .eq('Rushee_Email', Rushee_Email);
     
             if (error) {
               console.log(error);
             } else if (data && data.length > 0) {
               const rusheeData = data[0];
-              setUniqueName(rusheeData.Rushee_Uniquename);
+              setEmail(rusheeData.Rushee_Email);
               setName(rusheeData.Rushee_Name);
               setQ1(rusheeData.q1);
               setQ2(rusheeData.q2);
@@ -78,17 +78,17 @@ export default function RusheePage() {
         };
     
         fetchRushee();
-      }, [Rushee_Uniquename, userEmail]);
+      }, [Rushee_Email, userEmail]);
     
       useEffect(() => {
         const fetchRusheeImage = async () => {
-          const uniqueName = Rushee_Uniquename as string;
+          const email = Rushee_Email as string;
         
-          if (uniqueName) {
+          if (email) {
             const { data: ImageData, error } = await supabase
               .storage
               .from('rushee')
-              .download(uniqueName);
+              .download(email);
         
             if (error) {
               console.log(error);
@@ -99,7 +99,7 @@ export default function RusheePage() {
         };
     
         fetchRusheeImage();
-      }, [Rushee_Uniquename]);
+      }, [Rushee_Email]);
     
       const handleLike = async () => {
         if (userEmail) {
@@ -109,7 +109,7 @@ export default function RusheePage() {
           setAlreadyLiked(true);
     
           // Update the database with the new liked status
-          await supabase.from('V1-Book').update({ Likes: updatedLikes }).eq('Rushee_Uniquename', Rushee_Uniquename);
+          await supabase.from('V1-Book').update({ Likes: updatedLikes }).eq('Rushee_Email', Rushee_Email);
         }
       };
 
@@ -124,7 +124,7 @@ export default function RusheePage() {
           await supabase
             .from("book")
             .update({ Likes: updatedLikes })
-            .eq("Rushee_Uniquename", Rushee_Uniquename);
+            .eq("Rushee_Email", Rushee_Email);
         }
       };
     
@@ -137,7 +137,7 @@ export default function RusheePage() {
           setAlreadyDisliked(true);
     
           // Update the database with the new disliked status
-          await supabase.from('V1-Book').update({ Dislikes: updatedDislikes }).eq('Rushee_Uniquename', Rushee_Uniquename);
+          await supabase.from('V1-Book').update({ Dislikes: updatedDislikes }).eq('Rushee_Email', Rushee_Email);
         }
       };
 
@@ -152,7 +152,7 @@ export default function RusheePage() {
           await supabase
             .from("V1-Book")
             .update({ Dislikes: updatedDislikes })
-            .eq("Rushee_Uniquename", Rushee_Uniquename);
+            .eq("Rushee_Email", Rushee_Email);
         }
       };
     
@@ -161,7 +161,7 @@ export default function RusheePage() {
       };
 
       const handleComment = async (comment: string) => {
-        if (Rushee_Uniquename && userEmail) {
+        if (Rushee_Email && userEmail) {
           try {
             const { data, error } = await supabase
               .from('V1-Members')
@@ -191,7 +191,7 @@ export default function RusheePage() {
             await supabase
               .from("book")
               .update({ Comments: updatedComments })
-              .eq("Rushee_Uniquename", Rushee_Uniquename);
+              .eq("Rushee_Email", Rushee_Email);
       
             console.log('Comment added to the database successfully.');
           } catch (error) {
@@ -205,7 +205,7 @@ export default function RusheePage() {
       <ProtectedRoute allowedRoles={['member','admin']}>
         <div className="flex flex-col items-center m-8">           
             <RusheeTile 
-                Rushee_Uniquename={uniqueName} 
+                Rushee_Email={email} 
                 Rushee_Name={name}
                 q1={q1}
                 q2={q2}

@@ -5,7 +5,7 @@ import RusheeTile from '../components/RusheeTile';
 import ProtectedRoute from '../components/ProtectedRoute.tsx';
 
 export default function AddRushee() {
-    const [uniqueName, setUniqueName] = useState('');
+    const [rusheeEmail, setRusheeEmail] = useState('');
     const [rusheeName, setRusheeName] = useState('');
     const [Major , setMajor] = useState('');
     const [Year , setYear] = useState('');
@@ -33,7 +33,7 @@ export default function AddRushee() {
         event.preventDefault();
         const { error } = await supabase.from('V1-Book').insert([
             {
-                Rushee_Uniquename: uniqueName,
+                Rushee_Email: rusheeEmail,
                 Rushee_Name: rusheeName,
                 Likes: [],
                 Comments: [],
@@ -58,13 +58,13 @@ export default function AddRushee() {
     
             const { data: avatarData, error: AvatarError } = await supabase.storage
                 .from('rushee')
-                .upload(uniqueName, fileBlob, { contentType: 'image/jpeg' });
+                .upload(rusheeEmail, fileBlob, { contentType: 'image/jpeg' });
             if (AvatarError) {
                 console.log('Error uploading avatar:', AvatarError);
             }
         }
     
-        setUniqueName('');
+        setRusheeEmail('');
         setRusheeName('');
         setImageUrl(null);
         setMajor('');
@@ -90,12 +90,12 @@ export default function AddRushee() {
                 <div className="w-full pr-4 flex flex-col items-center">
                     <form className="flex flex-col w-11/12 mx-auto bg-white shadow-xl rounded-md">
                         <div className="flex items-center p-4">
-                            <label className="p-4 font-bold">Uniquename: </label>
+                            <label className="p-4 font-bold">Email: </label>
                             <input
                                 type="text"
-                                name="uniquename"
-                                value={uniqueName}
-                                onChange={(e) => setUniqueName(e.target.value)}
+                                name="rusheeEmail"
+                                value={rusheeEmail}
+                                onChange={(e) => setRusheeEmail(e.target.value)}
                                 className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring focus:border-blue-300 text-lg"
                             />
                         </div>
@@ -194,7 +194,7 @@ export default function AddRushee() {
                         Preview
                     </h1>
                     <RusheeTile
-                        Rushee_Uniquename={uniqueName}
+                        Rushee_Email={rusheeEmail}
                         Rushee_Name={rusheeName}
                         Major={Major}
                         Year={Year}

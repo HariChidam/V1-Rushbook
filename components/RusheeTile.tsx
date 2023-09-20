@@ -10,7 +10,7 @@ import Router from 'next/router'
 
 
 interface RusheeTileProps {
-    Rushee_Uniquename: string;
+    Rushee_Email: string;
     Rushee_Name: string;
     q1: string;
     q2: string;
@@ -34,7 +34,7 @@ interface RusheeTileProps {
 }
 
 const RusheeTile: React.FC<RusheeTileProps> = ({
-    Rushee_Uniquename,
+    Rushee_Email,
     Rushee_Name,
     q1,
     q2,
@@ -61,7 +61,7 @@ const RusheeTile: React.FC<RusheeTileProps> = ({
 
     const handleSeeMore = () => {
       if(!Big){
-        Router.push(`/rushee/${Rushee_Uniquename}`);
+        Router.push(`/rushee/${Rushee_Email}`);
       }
     };
 

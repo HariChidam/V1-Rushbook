@@ -6,7 +6,7 @@ import supabase from '../supabase.js';
 import RusheeTile from '../components/RusheeTile';
 
 interface Rushee {
-  Rushee_Uniquename: string;
+  Rushee_Email: string;
   Rushee_Name: string;
   Bio: string;
   Likes: string[];
@@ -72,7 +72,7 @@ export default function Home() {
           const { data: ImageData, error } = await supabase
             .storage
             .from('rushee')
-            .download(rushee.Rushee_Uniquename);
+            .download(rushee.Rushee_Email);
           if (error) {
             console.log(error);
             return rushee;
@@ -224,8 +224,8 @@ export default function Home() {
             <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 pt-4'>
               {filteredBook.map((rushee) => (
                 <RusheeTile
-                  key={rushee.Rushee_Uniquename}
-                  Rushee_Uniquename={rushee.Rushee_Uniquename}
+                  key={rushee.Rushee_Email}
+                  Rushee_Email={rushee.Rushee_Email}
                   Rushee_Name={rushee.Rushee_Name}
                   q1={rushee.q1}
                   q2={rushee.q2}
