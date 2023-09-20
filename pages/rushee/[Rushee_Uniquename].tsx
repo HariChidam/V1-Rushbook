@@ -203,9 +203,7 @@ export default function RusheePage() {
 
     return (
       <ProtectedRoute allowedRoles={['member','admin']}>
-        <div className="flex flex-col items-center">
-            <h1 onClick={handleHome} className='text-6xl lg:text-8xl font-bold bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 bg-clip-text text-transparent py-4 pb-2 text-center'>THT Rushbook</h1>
-            <hr className='h-2 my-4 w-full rounded bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 mb-20' />
+        <div className="flex flex-col items-center m-8">           
             <RusheeTile 
                 Rushee_Uniquename={uniqueName} 
                 Rushee_Name={name}
@@ -229,7 +227,7 @@ export default function RusheePage() {
                 onRemoveDislike={handleRemoveDislike}
                 onComment={handleComment}
               />
-            <button className='bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 text-white m-2 p-2 rounded-lg hover:scale-105 shadow-lg mt-4' onClick={handleHome}>Back to Home</button>
+            <button className='bg-black text-amber-400 m-2 p-2 rounded-lg hover:scale-105 shadow-lg mt-4' onClick={handleHome}>Back to Home</button>
         </div>
       </ProtectedRoute>
     );

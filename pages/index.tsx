@@ -199,10 +199,12 @@ export default function Home() {
           ) }
         </div>
       </div>
-      <div className='flex flex-row items-center'>
-        <button className='text-black bg-amber-400 m-2 p-2 rounded-lg hover:scale-105 shadow-lg' onClick={handleGoogleSignOut}>Sign out</button>
-        {isAdmin === 'admin' && (<button className='text-black bg-amber-400 m-2 p-2 rounded-lg hover:scale-105 shadow-lg' onClick={handleAddRushee}>Add Rushee</button>)}
-      </div>
+      {isMember &&
+        <div className='flex flex-col items-center'>
+          <button className='text-black bg-amber-400 m-2 p-2 rounded-lg hover:scale-105 shadow-lg' onClick={handleGoogleSignOut}>Sign out</button>
+          {isAdmin === 'admin' && (<button className='text-black bg-amber-400 m-2 p-2 rounded-lg hover:scale-105 shadow-lg' onClick={handleAddRushee}>Add Rushee</button>)}
+        </div>
+      }
       {isMember ? 
         (
           <div>
@@ -246,8 +248,8 @@ export default function Home() {
       (
         <div className='flex flex-col items-center p-8'>
           <h1 className='text-xl font-bold pb-4 text-center'>This is for V1 Members only!</h1>
-          <button onClick={handleJoin} className='bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 text-white m-2 p-2 rounded-lg hover:scale-105 shadow-lg'>Join Us!</button>
-          <button className='bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 text-white m-2 p-2 rounded-lg hover:scale-105 shadow-lg' onClick={handleGoogleSignIn}>Sign in with Google</button>
+          <button onClick={handleJoin} className='bg-black text-amber-400 m-2 p-2 rounded-lg hover:scale-105 shadow-lg'>Join Us!</button>
+          <button className='bg-black text-amber-400 m-2 p-2 rounded-lg hover:scale-105 shadow-lg' onClick={handleGoogleSignIn}>Sign in with Google</button>
         </div>
       )
       }

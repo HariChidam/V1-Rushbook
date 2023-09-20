@@ -1,12 +1,11 @@
-import React, { useEffect , useState} from 'react'
+import React, {useState} from 'react'
 import Image from "next/legacy/image"
-import thtlogo from '../public/tht-logo.png'
+import v1Logo from '../public/v1-logo.png'
 
 import like from '../public/like.svg'
 import liked from '../public/liked.svg'
 import dislike from '../public/dislike.svg'
 import disliked from '../public/disliked.svg'
-import supabase from '@/supabase'
 import Router from 'next/router'
 
 
@@ -88,7 +87,7 @@ const RusheeTile: React.FC<RusheeTileProps> = ({
                 )
                 :
                 (
-                    <Image src={thtlogo} alt="Rushee" layout='fill' objectFit="cover" className="rounded-lg w-full" />
+                    <Image src={v1Logo} alt="Rushee" layout='fill' objectFit="cover" className="rounded-lg w-full" />
                 )
                 }
             </div>
@@ -186,7 +185,7 @@ const RusheeTile: React.FC<RusheeTileProps> = ({
                           placeholder="Add a comment..."
                         />
                         <button
-                          className="bg-white text-red-900 mt-2 p-2 rounded-lg mb-4 hover:scale-105 shadow-lg"
+                          className="bg-white text-black mt-2 p-2 rounded-lg mb-4 hover:scale-105 shadow-lg"
                           onClick={handleAddComment}
                         >
                           Add Comment
