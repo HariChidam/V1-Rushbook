@@ -9,7 +9,7 @@ export default function AddRushee() {
     const [rusheeName, setRusheeName] = useState('');
     const [Major , setMajor] = useState('');
     const [Year , setYear] = useState('');
-    const [pronouns , setPronouns] = useState('');
+    const [gender , setGender] = useState('');
     const [q1 , setQ1] = useState('');
     const [q2 , setQ2] = useState('');
     const [q3 , setQ3] = useState('');
@@ -43,7 +43,7 @@ export default function AddRushee() {
                 q3: q3,
                 Major: Major,
                 Year: Year,
-                Pronouns: pronouns,
+                gender: gender,
             },
         ]);
         if (error) {
@@ -69,7 +69,7 @@ export default function AddRushee() {
         setImageUrl(null);
         setMajor('');
         setYear('');
-        setPronouns('');
+        setGender('');
         setQ1('');
         setQ2('');
         setQ3('');
@@ -85,8 +85,7 @@ export default function AddRushee() {
     return (
     <ProtectedRoute allowedRoles={['admin']}>
         <div className="flex flex-col items-center">
-            <h1 onClick={BackToHome} className='text-6xl lg:text-8xl font-bold bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 bg-clip-text text-transparent py-4 text-center'>THT Rushbook</h1>
-            <hr className='h-2 my-4 w-full rounded bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 mb-20' />
+            <h1 onClick={BackToHome} className='text-6xl lg:text-8xl font-bold bg-amber-400 bg-clip-text text-transparent py-4 text-center'>V1 Rushbook</h1>
             <div className="flex pt-8">
                 <div className="w-full pr-4 flex flex-col items-center">
                     <form className="flex flex-col w-11/12 mx-auto bg-white shadow-xl rounded-md">
@@ -131,12 +130,12 @@ export default function AddRushee() {
                             />
                         </div>
                         <div className="flex items-center p-4">
-                            <label className="p-4 font-bold">Pronouns: </label>
+                            <label className="p-4 font-bold">Gender: </label>
                             <input
                                 type="text"
-                                name="pronouns"
-                                value={pronouns}
-                                onChange={(e) => setPronouns(e.target.value)}
+                                name="gender"
+                                value={gender}
+                                onChange={(e) => setGender(e.target.value)}
                                 className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring focus:border-blue-300 text-lg"
                             />
                         </div>
@@ -183,7 +182,7 @@ export default function AddRushee() {
                         </div>
                         <button
                             type="submit"
-                            className="bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 text-white m-2 p-2 rounded-lg hover:scale-105 shadow-lg mb-4"
+                            className="bg-black text-white m-2 p-2 rounded-lg hover:scale-105 shadow-lg mb-4"
                             onClick={(e) => handleSubmit(e)}
                         >
                             Add Rushee
@@ -199,7 +198,7 @@ export default function AddRushee() {
                         Rushee_Name={rusheeName}
                         Major={Major}
                         Year={Year}
-                        Pronouns={pronouns}
+                        gender={gender}
                         q1={q1}
                         q2={q2}
                         q3={q3}
@@ -208,7 +207,7 @@ export default function AddRushee() {
                     />
                     <button
                         onClick={BackToHome}
-                        className="bg-gradient-to-r from-amber-400 via-orange-800 to-red-950 text-white m-6 p-2 rounded-lg hover:scale-105 shadow-lg mb-4"
+                        className="bg-black text-white m-6 p-2 rounded-lg hover:scale-105 shadow-lg mb-4"
                     >
                         Back to Home
                     </button>

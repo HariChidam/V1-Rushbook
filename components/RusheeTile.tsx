@@ -172,7 +172,7 @@ const RusheeTile: React.FC<RusheeTileProps> = ({
                         {Comments && Comments.map((comment, index) => (
                           <div key={index} className="mb-2 text-black">
                             <p>{comment}</p>
-                            <hr className={`w-full h-1 bg-gradient-to-r from-amber-400 via-orange-800 to-red-950`} />
+                            <hr className={`w-full h-1 bg-black`} />
                           </div>
                         ))}
                       </div>
