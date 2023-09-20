@@ -21,7 +21,7 @@ interface RusheeTileProps {
     imageUrl?: string;
     Major: string;
     Year: string;
-    Pronouns: string;
+    Gender: string;
     Big: boolean;
     alreadyLiked?: boolean;
     alreadyDisliked?: boolean;
@@ -45,7 +45,7 @@ const RusheeTile: React.FC<RusheeTileProps> = ({
     imageUrl,
     Major,
     Year,
-    Pronouns,
+    Gender,
     Big,
     alreadyLiked,
     alreadyDisliked,
@@ -94,7 +94,7 @@ const RusheeTile: React.FC<RusheeTileProps> = ({
             <div className='flex flex-col items-center text-amber-400'>
               <div className='flex flex-col items-center'>
                 <h1 className='flex p-2 font-bold text-3xl text-center'>{Rushee_Name}</h1>
-                <h3 className='flex text-md mb-2'>{Major} | {Year} | {Pronouns}</h3>
+                <h3 className='flex text-md mb-2'>{Major} | {Year} | {Gender}</h3>
               </div>
                 <hr className={`w-full border-white ${Big ? 'mb-4' : ''}`} />
 
