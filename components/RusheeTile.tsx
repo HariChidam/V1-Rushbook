@@ -102,19 +102,19 @@ const RusheeTile: React.FC<RusheeTileProps> = ({
                   (
                     <div className='flex flex-col items-center'>
                       <div className='mb-4'>
-                          <h3 className='text-center font-bold underline mb-2'>Write a few sentences about any interests you have?</h3>
+                          <h3 className='text-center font-bold underline mb-2'>Tell us about your builder journey so far.</h3>
                         <h3 className={`text-center whitespace-normal px-2`}>
                           {q1}
                         </h3>
                       </div>
                       <div className='mb-4'>
-                        <h3 className='text-center font-bold underline mb-2'>Why do you want to join Theta Tau?</h3>
+                        <h3 className='text-center font-bold underline mb-2'>Why are you interested in V1? What do you hope to give and gain from our community?</h3>
                         <h3 className={`text-center whitespace-normal px-2`}>
                           {q2}
                         </h3>
                       </div>
                       <div className='mb-4'>
-                        <h3 className='text-center font-bold underline mb-2'>Tell us a Joke</h3>
+                        <h3 className='text-center font-bold underline mb-2'>Tell us a fun fact about yourself in one or two sentences.</h3>
                         <h3 className={`text-center whitespace-normal px-2`}>
                           {q3}
                         </h3>
