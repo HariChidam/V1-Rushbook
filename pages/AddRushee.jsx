@@ -9,7 +9,7 @@ export default function AddRushee() {
     const [rusheeName, setRusheeName] = useState('');
     const [Major , setMajor] = useState('');
     const [Year , setYear] = useState('');
-    const [gender , setGender] = useState('');
+    const [Gender , setGender] = useState('');
     const [q1 , setQ1] = useState('');
     const [q2 , setQ2] = useState('');
     const [q3 , setQ3] = useState('');
@@ -43,7 +43,7 @@ export default function AddRushee() {
                 q3: q3,
                 Major: Major,
                 Year: Year,
-                gender: gender,
+                Gender: Gender,
             },
         ]);
         if (error) {
@@ -133,8 +133,8 @@ export default function AddRushee() {
                             <label className="p-4 font-bold">Gender: </label>
                             <input
                                 type="text"
-                                name="gender"
-                                value={gender}
+                                name="Gender"
+                                value={Gender}
                                 onChange={(e) => setGender(e.target.value)}
                                 className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring focus:border-blue-300 text-lg"
                             />
@@ -198,7 +198,7 @@ export default function AddRushee() {
                         Rushee_Name={rusheeName}
                         Major={Major}
                         Year={Year}
-                        gender={gender}
+                        Gender={Gender}
                         q1={q1}
                         q2={q2}
                         q3={q3}
