@@ -122,7 +122,7 @@ export default function RusheePage() {
     
           // Update the database with the new liked status
           await supabase
-            .from("book")
+            .from("V1-Book")
             .update({ Likes: updatedLikes })
             .eq("Rushee_Email", Rushee_Email);
         }
